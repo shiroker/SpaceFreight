@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'planet-express';
+  isAddMode = false;
+
+  handleToggleAddItem(): void {
+    this.isAddMode = !this.isAddMode;
+  }
 }

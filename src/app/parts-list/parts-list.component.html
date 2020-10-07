@@ -1,0 +1,22 @@
+<h1>Planet Express Lagerbestand</h1>
+<table>
+  <tr>
+    <td style="background-color: tomato">Produkt</td>
+    <td style="background-color: tomato">ID</td>
+    <td style="background-color: tomato">vorrätige Anzahl</td>
+  </tr>
+  <tr *ngFor="let part of parts">
+    <td>{{part.name}}</td>
+    <td>{{part.id}}</td>
+    <td>{{part.quantity}}</td>
+    <td>
+      <p style="text-align: center">Bestand setzen: <input #box (keyup.enter)="onSetQuantity(box.value, part.id)"
+                                                           style="width : 30px"></p>
+      <button (click)="onDecrementQuantity(part.id)" style="margin-bottom: 10px">Bestand dekrementieren</button>
+    </td>
+    <td>
+      <button (click)="onRemovePart(part.id)" style="margin-bottom: 10px">Element entfernen</button>
+    </td>
+  </tr>
+</table>
+<button (click)="onAddPart($event)">Element hinzufügen</button>
